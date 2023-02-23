@@ -164,7 +164,7 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Example..}
+\begin{frame}{First iteration}
 Running BFS on the free vertices of the left side... \\
 \vspace{.5cm}
 \hspace{2.7cm}
@@ -225,7 +225,7 @@ Running BFS on the free vertices of the left side... \\
 
 \end{frame}
 
-\begin{frame}{Example DFS...}
+\begin{frame}{First iteration}
     Running DFS on the free vertices of the right side... \\
 \vspace{.5cm}
 \hspace{2.7cm}
@@ -322,6 +322,93 @@ After running the DFS on the remaining part... \\
 \draw[edge] (D) to (F);
 \draw[edge,color=green,line width=1.5pt] (D) to (G);
 \draw[edge,color] (D) to (H);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Second Iteration}
+    Running BFS on the free vertices of left side..\\
+    \vspace{.5cm}
+\hspace{2.7cm}
+    \begin{tikzpicture}[scale=1.5]
+\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+\tikzset{edge/.style = {->,> = latex'}}
+\tikzset{red vertex/.style={vertex,fill=red!50}}
+\tikzset{blue vertex/.style={vertex,fill=blue!50}}
+
+% Left partition
+\node[red vertex] (A) at (-2,2) {$A$};
+\node[red vertex] (B) at (-2,1) {$B$};
+\node[red vertex] (C) at (-2,0) {$C$};
+\node[red vertex] (D) at (-2,-1) {$D$};
+
+% Right partition
+\node[red vertex] (E) at (2,2) {$E$};
+\node[red vertex] (F) at (2,1) {$F$};
+\node[red vertex] (G) at (2,0) {$G$};
+\node[blue vertex] (H) at (2,-1) {$H$};
+
+% Edges
+\draw[edge,color=green,line width=1.5pt] (A) to (E);
+\draw[edge] (A) to (F);
+\draw[edge] (A) to (H);
+\draw[edge,color=red,line width=1.5pt] (B) to (E);
+\draw[edge,color=green,line width=1.5pt] (C) to (F);
+\draw[edge] (D) to (E);
+\draw[edge] (D) to (F);
+\draw[edge,color=green,line width=1.5pt] (D) to (G);
+\draw[edge,color] (D) to (H);
+
+\pause
+\draw[edge,color=red,line width=1.5pt] (A) to (E);
+\pause
+\draw[edge,color=red,line width=1.5pt] (A) to (H);
+\draw[edge,color=red,line width=1.5pt] (A) to (F);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Second iteration}
+Running DFS on the free vertices of right side
+        \vspace{.5cm}
+\hspace{2.7cm}
+    \begin{tikzpicture}[scale=1.5]
+\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+\tikzset{edge/.style = {->,> = latex'}}
+\tikzset{red vertex/.style={vertex,fill=red!50}}
+\tikzset{blue vertex/.style={vertex,fill=blue!50}}
+
+% Left partition
+\node[red vertex] (A) at (-2,2) {$A$};
+\node[red vertex] (B) at (-2,1) {$B$};
+\node[red vertex] (C) at (-2,0) {$C$};
+\node[red vertex] (D) at (-2,-1) {$D$};
+
+% Right partition
+\node[red vertex] (E) at (2,2) {$E$};
+\node[red vertex] (F) at (2,1) {$F$};
+\node[red vertex] (G) at (2,0) {$G$};
+\node[red vertex] (H) at (2,-1) {$H$};
+
+% Edges
+\draw[edge,color=red,line width=1.5pt] (A) to (E);
+\draw[edge,color=red,line width=1.5pt] (A) to (F);
+\draw[edge,color=blue,line width=1.5pt] (A) to (H);
+\draw[edge,color=red,line width=1.5pt] (B) to (E);
+\draw[edge,color=green,line width=1.5pt] (C) to (F);
+\draw[edge] (D) to (E);
+\draw[edge] (D) to (F);
+\draw[edge,color=green,line width=1.5pt] (D) to (G);
+\draw[edge,color] (D) to (H);
+
+\pause
+\draw[edge,color=white,line width=3pt] (A) to (E);
+\draw[edge,color=white,line width=3pt] (A) to (H);
+\draw[edge,color=green,line width=1.5pt] (C) to (F);
+\draw[edge] (D) to (F);
+\draw[edge,color=green,line width=1.5pt] (D) to (G);
+\draw[edge,color=white,line width=3pt] (A) to (F);
+\draw[edge] (D) to (E);
+\draw[edge,color=red,line width=1.5pt] (B) to (E);
+\draw[edge,color=white,line width=3pt] (D) to (H);
 \end{tikzpicture}
 \end{frame}
 
