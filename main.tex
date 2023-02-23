@@ -1,0 +1,156 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+%THEME and COLORTHEME
+\usetheme{Madrid}
+%\usetheme{Berkeley}
+%\usetheme{Copenhagen}
+
+%\usecolortheme{spruce}
+%\usecolortheme{beetle}
+%\usecolortheme{seahorse}
+%\usecolortheme{wolverine}
+
+\title{Hopcroft-Karp Algorithm}
+
+%\subtitle{An Introduction}
+
+\author[Rakib,Sany,Bijoy]{Rakib Abdullah\\Al-Amin Sany\\Bijoy Saem}
+
+\institute[CSE, BUET]
+{
+Department of Computer Science and Engineering\\
+Bangladesh University of Engineering and Technology
+}
+
+\date{\today}
+
+%\logo{\includegraphics[height=1cm]{overleaf.png}}
+
+% PLACING ToC AT THE BEGINNING OF EACH SECTION
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%TABLE OF CONTENTS
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+\begin{block}{Hopcroft-Karp Algorithm}
+The Hopcroft-Karp algorithm is a graph algorithm that finds the maximum cardinality matching in a bipartite graph.
+\end{block} \pause
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\centering
+\begin{figure}
+\begin{tikzpicture}[scale=1.5]
+  \node[draw, circle] (a1) at (0,1) {1};
+  \node[draw, circle] (a2) at (0,0) {2};
+  \node[draw, circle] (a3) at (0,-1) {3};
+  \node[draw, circle] (b1) at (2,1) {4};
+  \node[draw, circle] (b2) at (2,0) {5};
+  \node[draw, circle] (b3) at (2,-1) {6};
+  
+  \draw (a1) -- (b1);
+  \draw (a1) -- (b2);
+  \draw (a1) -- (b3);
+  \draw (a2) -- (b2);
+  \draw (a3) -- (b1);
+  \draw (a3) -- (b3);
+\end{tikzpicture}
+\caption{Bipartite graph}
+\end{figure}
+\end{column}
+\pause
+\begin{column}{0.5\textwidth}
+\centering
+\begin{figure}
+\begin{tikzpicture}[scale=1.5]
+  \node[draw, circle] (a1) at (0,1) {1};
+  \node[draw, circle] (a2) at (0,0) {2};
+  \node[draw, circle] (a3) at (0,-1) {3};
+  \node[draw, circle] (b1) at (2,1) {4};
+  \node[draw, circle] (b2) at (2,0) {5};
+  \node[draw, circle] (b3) at (2,-1) {6};
+  
+  \draw[green, very thick] (a1) -- (b2);
+  \draw[green, very thick] (a2) -- (b3);
+  \draw[green, very thick] (a3) -- (b1);
+\end{tikzpicture}
+\caption{Maximum cardinality matching}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Definitions}
+\begin{frame}{Definitions}
+     \begin{block}{Bipartite Graph}
+A graph is bipartite if its vertices can be divided into two disjoint sets such that every edge connects a vertex in one set to a vertex in the other set.
+\end{block}
+ \pause
+\begin{block}{Matching}
+A matching in a graph is a set of edges such that no two edges share a common vertex.A matching is said to be maximum if it contains the maximum number of edges possible
+\end{block} \pause
+\begin{block}{Free vertex}
+ a free vertex refers to a vertex in the left part of the bipartite graph that is not yet matched with any vertex in the right part of the graph. 
+\end{block}
+
+
+\end{frame}
+
+\section{Algorithm}
+\begin{frame}{Algorithm}
+\renewcommand{\thealgorithm}{}
+\begin{algorithm}[H]
+\floatname{algorithm}{}
+\caption{Hopcroft-Karp(G)}
+\begin{algorithmic}[1]
+\State Initialize the matching $M=\phi$ \pause
+\While{there exists an augmenting path $P$ with respect to $M$} \pause
+\State Use a breadth-first search to find an augmenting path $P$ with respect to $M$.\pause
+\State Use a depth-first search to augment the matching $M$ along $P$.\pause
+\EndWhile
+\State Output the matching $M$ as the maximum cardinality matching.
+\end{algorithmic}
+\end{algorithm}
+\end{frame}
+
+\begin{frame}{Example}
+
+Applying the Hopcroft-Karp algorithm, we get the following augmenting paths:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{hopcroft_karp_example.png}
+\caption{Augmenting paths}
+\label{fig:2}
+\end{figure}
+
+Thus, we get a maximum matching of size 4.
+
+\end{frame}
+
+\section{Complexity}
+\begin{frame}{Complexity}
+
+The Hopcroft-Karp algorithm has a time complexity of O(E * sqrt(V)), where E is the number of edges and V is the number of vertices in the bipartite graph.
+
+\end{frame}
+
+\end{document}
