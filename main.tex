@@ -325,7 +325,7 @@ After running the DFS on the remaining part... \\
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Second Iteration}
+\begin{frame}{Second iteration}
     Running BFS on the free vertices of left side..\\
     \vspace{.5cm}
 \hspace{2.7cm}
@@ -367,7 +367,7 @@ After running the DFS on the remaining part... \\
 \end{frame}
 
 \begin{frame}{Second iteration}
-Running DFS on the free vertices of right side
+Running DFS on the free vertices of right side...\\
         \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -461,11 +461,22 @@ As no more free vertex is available,the algorithm terminates and finally we get 
 \end{tikzpicture}
 \end{frame}
 
-\section{Complexity}
-\begin{frame}{Complexity}
+\section{Time Complexity}
+\begin{frame}{Time Complexity}
+    \begin{itemize}
+        \item<1-> The time complexity of the algorithm is O(E * sqrt(V)), where E is the number of edges and V is the number of vertices in the graph. This means that the time required to run the algorithm increases linearly with the number of edges, but is also influenced by the square root of the number of vertices.
+        \item<2->The time complexity of the algorithm is considered efficient for most bipartite graphs, but may not be the best choice for extremely large graphs.
 
-The Hopcroft-Karp algorithm has a time complexity of O(E * sqrt(V)), where E is the number of edges and V is the number of vertices in the bipartite graph.
+    \end{itemize}
+\end{frame}
 
+\section{Applications}
+\begin{frame}{Applications}
+    \begin{itemize}
+        \item<1-> \alert{Image segmentation} - finding matches between objects in an image and a pre-defined set of object templates.
+        \item<2-> \alert{Job scheduling} - matching workers with tasks based on their skills and availability.
+        \item<3-> \alert{Online advertising} - matching ads with potential viewers based on demographic and behavioral data.
+    \end{itemize}
 \end{frame}
 
 \end{document}
