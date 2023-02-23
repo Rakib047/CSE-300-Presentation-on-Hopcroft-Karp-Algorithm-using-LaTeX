@@ -199,7 +199,7 @@ Running BFS on the free vertices of the left side... \\
 
 % BFS
 \node[blue vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (A) at (-2,2) {$A$};
+\node[blue vertex] (A) at (-2,2) {$A$};
 
 \node[blue vertex] (C) at (-2,0) {$C$};
 
@@ -207,15 +207,15 @@ Running BFS on the free vertices of the left side... \\
 
 \pause
 
-\node[red vertex] (B) at (-2,1) {$B$};
+%\node[r vertex] (B) at (-2,1) {$B$};
 \draw[edge,color=red] (B) to (E);
 
 \pause
-\node[red vertex] (C) at (-2,0) {$C$};
+%\node[red vertex] (C) at (-2,0) {$C$};
 \draw[edge,color=red] (C) to (F);
 
 \pause
-\node[red vertex] (D) at (-2,-1) {$D$};
+%\node[red vertex] (D) at (-2,-1) {$D$};
 \draw[edge,color=red] (D) to (E);
 \draw[edge,color=red] (D) to (F);
 \draw[edge,color=red] (D) to (G);
@@ -237,9 +237,9 @@ Running BFS on the free vertices of the left side... \\
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$A$};
-\node[red vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (C) at (-2,0) {$C$};
-\node[red vertex] (D) at (-2,-1) {$D$};
+\node[blue vertex] (B) at (-2,1) {$B$};
+\node[blue vertex] (C) at (-2,0) {$C$};
+\node[blue vertex] (D) at (-2,-1) {$D$};
 
 % Right partition
 \node[blue vertex] (E) at (2,2) {$E$};
@@ -272,6 +272,9 @@ Running BFS on the free vertices of the left side... \\
 \draw[edge,color=red,line width=1pt] (D) to (G);
 \draw[edge,color=red,line width=1pt] (D) to (H);
 
+
+
+
 \pause
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,2) {};
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at ((-2,1) {};
@@ -280,6 +283,7 @@ Running BFS on the free vertices of the left side... \\
 \pause  
 \draw[edge,color=green,line width=1.5pt] (C) to (F);
 \node[red vertex] (F) at (2,1) {$F$};
+\node[red vertex] (C) at (-2,0) {$C$};
 
 \pause
 \draw[edge,color=white,line width=3pt] (C) to (F);
@@ -337,7 +341,7 @@ After running the DFS on the remaining part, $$M=\{A-E,C-F,G-D\}$$ \\
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$A$};
-\node[red vertex] (B) at (-2,1) {$B$};
+\node[blue vertex] (B) at (-2,1) {$B$};
 \node[red vertex] (C) at (-2,0) {$C$};
 \node[red vertex] (D) at (-2,-1) {$D$};
 
@@ -378,7 +382,7 @@ Running DFS on the free vertices of right side...\\
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$A$};
-\node[red vertex] (B) at (-2,1) {$B$};
+\node[blue vertex] (B) at (-2,1) {$B$};
 \node[red vertex] (C) at (-2,0) {$C$};
 \node[red vertex] (D) at (-2,-1) {$D$};
 
@@ -416,6 +420,7 @@ Running DFS on the free vertices of right side...\\
 \node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (-2,2) {};
 \draw[edge,color=white,line width=2pt] (A) to (E);
 \draw[edge,color=blue,line width=1.5pt] (B) to (E);
+\node[red vertex] (B) at (-2,1) {$B$};
 \pause
 \draw[edge,color=white,line width=2pt] (B) to (E);
 \draw[edge,color=white,line width=2pt] (D) to (E);
