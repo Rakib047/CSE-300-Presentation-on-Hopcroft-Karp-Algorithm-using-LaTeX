@@ -248,15 +248,31 @@ Running BFS on the free vertices of the left side... \\
 \node[blue vertex] (H) at (2,-1) {$H$};
 
 % Edges
-\draw[edge,color=red] (A) to (E);
+\draw[edge,color=green] (A) to (E);
 \draw[edge,color=red] (A) to (F);
 \draw[edge,color=red] (A) to (H);
-\draw[edge] (B) to (E);
-\draw[edge] (C) to (F);
-\draw[edge] (D) to (E);
-\draw[edge] (D) to (F);
-\draw[edge] (D) to (G);
-\draw[edge,color] (D) to (H);
+\draw[edge,color=red] (B) to (E);
+\draw[edge,color=red] (C) to (F);
+\draw[edge,color=red] (D) to (E);
+\draw[edge,color=red] (D) to (F);
+\draw[edge,color=red] (D) to (G);
+\draw[edge,color=red] (D) to (H);
+
+\pause
+
+\draw[edge,color=white,line width=3pt] (A) to (E);
+\draw[edge,color=white,line width=3pt] (A) to (F);
+\draw[edge,color=white,line width=3pt] (A) to (H);
+\draw[edge,color=white,line width=3pt] (B) to (E);
+\draw[edge,color=red] (C) to (F);
+\draw[edge,color=red] (D) to (E);
+\draw[edge,color=red] (D) to (F);
+\draw[edge,color=red] (D) to (G);
+\draw[edge,color=red] (D) to (H);
+
+\pause
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,2) {};
+
 \end{tikzpicture}
 \end{frame}
 
