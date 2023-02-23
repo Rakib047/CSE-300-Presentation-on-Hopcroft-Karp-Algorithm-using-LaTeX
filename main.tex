@@ -133,16 +133,34 @@ A matching in a graph is a set of edges such that no two edges share a common ve
 
 \begin{frame}{Example}
 
-Applying the Hopcroft-Karp algorithm, we get the following augmenting paths:
+    \centering
+\begin{tikzpicture}[scale=1.5]
+\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+\tikzset{edge/.style = {->,> = latex'}}
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.6]{hopcroft_karp_example.png}
-\caption{Augmenting paths}
-\label{fig:2}
-\end{figure}
+% Left partition
+\node[vertex] (A) at (-2,2) {$A$};
+\node[vertex] (B) at (-2,1) {$B$};
+\node[vertex] (C) at (-2,0) {$C$};
+\node[vertex] (D) at (-2,-1) {$D$};
 
-Thus, we get a maximum matching of size 4.
+% Right partition
+\node[vertex] (E) at (2,2) {$E$};
+\node[vertex] (F) at (2,1) {$F$};
+\node[vertex] (G) at (2,0) {$G$};
+\node[vertex] (H) at (2,-1) {$H$};
+
+% Edges
+\draw[edge] (A) to (E);
+\draw[edge] (A) to (F);
+\draw[edge] (A) to (H);
+\draw[edge] (B) to (E);
+\draw[edge] (C) to (F);
+\draw[edge] (D) to (E);
+\draw[edge] (D) to (F);
+\draw[edge] (D) to (G);
+\draw[edge] (D) to (H);
+\end{tikzpicture}
 
 \end{frame}
 
