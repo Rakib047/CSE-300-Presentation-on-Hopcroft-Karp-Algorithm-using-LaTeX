@@ -248,7 +248,8 @@ Running BFS on the free vertices of the left side... \\
 \node[blue vertex] (H) at (2,-1) {$H$};
 
 % Edges
-\draw[edge,color=green] (A) to (E);
+\node[red vertex] (E) at (2,2) {$E$};
+\draw[edge,color=green,line width=1.5pt] (A) to (E);
 \draw[edge,color=red] (A) to (F);
 \draw[edge,color=red] (A) to (H);
 \draw[edge,color=red] (B) to (E);
@@ -265,14 +266,62 @@ Running BFS on the free vertices of the left side... \\
 \draw[edge,color=white,line width=3pt] (A) to (H);
 \draw[edge,color=white,line width=3pt] (B) to (E);
 \draw[edge,color=red] (C) to (F);
-\draw[edge,color=red] (D) to (E);
-\draw[edge,color=red] (D) to (F);
-\draw[edge,color=red] (D) to (G);
-\draw[edge,color=red] (D) to (H);
+\draw[edge,color=white,line width=1pt] (D) to (E);
+\draw[edge,color=red,line width=1pt] (C) to (F);
+\draw[edge,color=red,line width=1pt] (D) to (F);
+\draw[edge,color=red,line width=1pt] (D) to (G);
+\draw[edge,color=red,line width=1pt] (D) to (H);
 
 \pause
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,2) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at ((-2,1) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,2) {};
 
+\pause  
+\draw[edge,color=green,line width=1.5pt] (C) to (F);
+\node[red vertex] (F) at (2,1) {$F$};
+
+\pause
+\draw[edge,color=white,line width=3pt] (C) to (F);
+\draw[edge,color=white,line width=3pt] (D) to (F);
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,0) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,1) {};
+
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{After first iteration}
+After running the DFS on the remaining part... \\
+\vspace{.5cm}
+\hspace{2.7cm}
+    \begin{tikzpicture}[scale=1.5]
+\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+\tikzset{edge/.style = {->,> = latex'}}
+\tikzset{red vertex/.style={vertex,fill=red!50}}
+\tikzset{blue vertex/.style={vertex,fill=blue!50}}
+
+% Left partition
+\node[red vertex] (A) at (-2,2) {$A$};
+\node[blue vertex] (B) at (-2,1) {$B$};
+\node[red vertex] (C) at (-2,0) {$C$};
+\node[red vertex] (D) at (-2,-1) {$D$};
+
+% Right partition
+\node[red vertex] (E) at (2,2) {$E$};
+\node[red vertex] (F) at (2,1) {$F$};
+\node[red vertex] (G) at (2,0) {$G$};
+\node[blue vertex] (H) at (2,-1) {$H$};
+
+% Edges
+\draw[edge,color=green,line width=1.5pt] (A) to (E);
+\draw[edge] (A) to (F);
+\draw[edge] (A) to (H);
+\draw[edge] (B) to (E);
+\draw[edge,color=green,line width=1.5pt] (C) to (F);
+\draw[edge] (D) to (E);
+\draw[edge] (D) to (F);
+\draw[edge,color=green,line width=1.5pt] (D) to (G);
+\draw[edge,color] (D) to (H);
 \end{tikzpicture}
 \end{frame}
 
