@@ -123,7 +123,7 @@ A matching in a graph is a set of edges such that no two edges share a common ve
 \begin{algorithmic}[1]
 \State $M=\phi$ \pause
 \While{$P\neq\phi$} \pause
-\State $P=\{p_1,p_2,\dot,p_k\}$ {\small //vertex-disjoint shortest augmenting paths} \pause
+\State $P=\{p_1,p_2,\dots,p_k\}$ {\small //vertex-disjoint shortest augmenting paths} \pause
 \State $M:=M\oplus\{p_1 \cup p_2 \cup \dots \cup p_k\}$\pause
 \EndWhile
 \State Output the matching $M$ as the maximum cardinality matching.
@@ -360,7 +360,7 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 
 \begin{frame}{Second iteration:BFS}
     \only<1-2>{$\hspace{3cm}F=\{\}$} \\
-    \only<1>{$\hspace{3cm}Augmenting path=b->e$}
+    \only<1>{$\hspace{3cm}\text{Augmenting path}=b->e$}
     \only<2>{$\hspace{3cm}\text{Augmenting path}=b->e->a$}
     \only<3>{$\hspace{3cm}F=\{\textcolor{red}{H}\}$}\\
     \only<3>{$\hspace{3cm}\text{Augmenting path}=b->e->a->h$}\\
@@ -404,7 +404,27 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \end{frame}
 
 \begin{frame}{Second iteration:DFS}
-        
+    \only<1>{$\hspace{4.6cm}F=\{H\}$}\\
+    \only<1>{$\hspace{4.6cm}P=\{\}$}\\
+    \only<1>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
+
+    \only<2-3>{$\hspace{4.6cm}F=\{\textcolor{red}{H}\}$}\\
+    \only<2-3>{$\hspace{4.6cm}P=\{\textcolor{red}{(h-a)}\}$}\\
+    \only<2-3>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
+
+    \only<4>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<4>{$\hspace{4.6cm}P=\{(h-a),\textcolor{blue}{(a-e)}\}$}\\
+    \only<4>{$\hspace{4.6cm}M=\{\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
+
+    \only<5-6>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<5-6>{$\hspace{4.6cm}P=\{(h-a),\textcolor{red}{(e-b)}\}$}\\
+    \only<5-6>{$\hspace{4.6cm}M=\{(f-c),(g-d)\}$}
+
+    \only<7>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<7>{$\hspace{4.6cm}P=\{(h-a),(e-b)\}$}\\
+    \only<7>{$\hspace{4.6cm}M=\{(f-c),(g-d)\}$}
+    
+    
         \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -423,12 +443,12 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \node[red vertex] (E) at (2,2) {$e$};
 \node[red vertex] (F) at (2,1) {$f$};
 \node[red vertex] (G) at (2,0) {$g$};
-\node[red vertex] (H) at (2,-1) {$h$};
+\node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge,color=red,line width=1.5pt] (A) to (E);
 \draw[edge,color=red,line width=1.5pt] (A) to (F);
-\draw[edge,color=green,line width=1.5pt] (A) to (H);
+\draw[edge,color=red,line width=1.5pt] (A) to (H);
 \draw[edge,color=red,line width=1.5pt] (B) to (E);
 \draw[edge,color=green,line width=1.5pt] (C) to (F);
 \draw[edge] (D) to (E);
@@ -436,6 +456,10 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \draw[edge,color=green,line width=1.5pt] (D) to (G);
 \draw[edge,color] (D) to (H);
 
+\pause
+    \draw[edge,color=green,line width=1.5pt] (A) to (H);
+    \node[red vertex] (H) at (2,-1) {$h$};
+    
 \pause
 
 \draw[edge,color=white,line width=3pt] (A) to (H);

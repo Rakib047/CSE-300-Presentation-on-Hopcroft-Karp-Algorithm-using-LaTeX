@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Definitions}{7}{0}{2}
-\beamer@sectionintoc {3}{Algorithm}{11}{0}{3}
-\beamer@sectionintoc {4}{Time Complexity}{41}{0}{4}
-\beamer@sectionintoc {5}{Applications}{44}{0}{5}
