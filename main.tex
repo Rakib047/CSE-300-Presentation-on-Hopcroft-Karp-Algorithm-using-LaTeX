@@ -19,7 +19,7 @@
 
 %\subtitle{An Introduction}
 
-\author[Rakib,Sany,Bijoy]{Rakib Abdullah-1905047\\Al-Amin Sany-1905048\\Bijoy Saem-1905052}
+\author[Rakib,Sany,Bijoy]{1905047-Rakib Abdullah\\1905048-Al-Amin Sany\\1905052-Bijoy Ahmed Saiem}
 
 \institute[CSE, BUET]
 {
@@ -104,11 +104,11 @@ The Hopcroft-Karp algorithm is a graph algorithm that finds the maximum cardinal
 A graph is bipartite if its vertices can be divided into two disjoint sets such that every edge connects a vertex in one set to a vertex in the other set.
 \end{block}
  \pause
-\begin{block}{Matching}
-A matching in a graph is a set of edges such that no two edges share a common vertex.A matching is said to be maximum if it contains the maximum number of edges possible
+\begin{block}{Maximum Cardinality}
+A matching in a graph is a set of edges such that no two edges share a common vertex.Maximum cardinality means maximum possible matching.
 \end{block} \pause
 \begin{block}{Free vertex}
- a free vertex refers to a vertex in the left part of the bipartite graph that is not yet matched with any vertex in the right part of the graph. 
+ A free vertex is a vertex with no matching edge connected to it.
 \end{block}
 
 
@@ -121,10 +121,10 @@ A matching in a graph is a set of edges such that no two edges share a common ve
 \floatname{algorithm}{}
 \caption{Hopcroft-Karp(G)}
 \begin{algorithmic}[1]
-\State Initialize the matching $M=\phi$ \pause
-\While{there exists an augmenting path $P$ with respect to $M$} \pause
-\State Use a breadth-first search to find an augmenting path $P$ with respect to $M$.\pause
-\State Use a depth-first search to augment the matching $M$ along $P$.\pause
+\State $M=\phi$ \pause
+\While{$P\neq\phi$} \pause
+\State $P=\{p_1,p_2,\dot,p_k\}$ {\small //vertex-disjoint shortest augmenting paths} \pause
+\State $M:=M\oplus\{p_1 \cup p_2 \cup \dots \cup p_k\}$\pause
 \EndWhile
 \State Output the matching $M$ as the maximum cardinality matching.
 \end{algorithmic}
@@ -140,16 +140,16 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \tikzset{edge/.style = {->,> = latex'}}
 
 % Left partition
-\node[vertex] (A) at (-2,2) {$A$};
-\node[vertex] (B) at (-2,1) {$B$};
-\node[vertex] (C) at (-2,0) {$C$};
-\node[vertex] (D) at (-2,-1) {$D$};
+\node[vertex] (A) at (-2,2) {$a$};
+\node[vertex] (B) at (-2,1) {$b$};
+\node[vertex] (C) at (-2,0) {$c$};
+\node[vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[vertex] (E) at (2,2) {$E$};
-\node[vertex] (F) at (2,1) {$F$};
-\node[vertex] (G) at (2,0) {$G$};
-\node[vertex] (H) at (2,-1) {$H$};
+\node[vertex] (E) at (2,2) {$e$};
+\node[vertex] (F) at (2,1) {$f$};
+\node[vertex] (G) at (2,0) {$g$};
+\node[vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge] (A) to (E);
@@ -164,8 +164,12 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{First iteration}
-Running BFS on the free vertices of the left side... \\
+\begin{frame}{First iteration:BFS}
+\only<1>{$\hspace{4.5cm}F=\{\}$}\\ % will only appear on slide 1
+\only<2>{$\hspace{4.5cm}F=\{\textcolor{red}{e},\textcolor{red}{f},\textcolor{red}{h}\}$}\\ % will appear on slides 2 and later
+\only<3>{$\hspace{4.5cm}F=\{e,f,h\}$}\\
+\only<4>{$\hspace{4.5cm}F=\{e,f,h\}$}\\
+\only<5>{$\hspace{4.5cm}F=\{e,f,h,\textcolor{red}{g}\}$}\\
 \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -175,21 +179,21 @@ Running BFS on the free vertices of the left side... \\
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[vertex] (B) at (-2,1) {$B$};
-\node[vertex] (C) at (-2,0) {$C$};
-\node[vertex] (D) at (-2,-1) {$D$};
+\node[blue vertex] (A) at (-2,2) {$a$};
+\node[blue vertex] (B) at (-2,1) {$b$};
+\node[blue vertex] (C) at (-2,0) {$c$};
+\node[blue vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[blue vertex] (E) at (2,2) {$E$};
-\node[blue vertex] (F) at (2,1) {$F$};
-\node[blue vertex] (G) at (2,0) {$G$};
-\node[blue vertex] (H) at (2,-1) {$H$};
+\node[blue vertex] (E) at (2,2) {$e$};
+\node[blue vertex] (F) at (2,1) {$f$};
+\node[blue vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
-\draw[edge,color=red] (A) to (E);
-\draw[edge,color=red] (A) to (F);
-\draw[edge,color=red] (A) to (H);
+\draw[edge] (A) to (E);
+\draw[edge] (A) to (F);
+\draw[edge] (A) to (H);
 \draw[edge] (B) to (E);
 \draw[edge] (C) to (F);
 \draw[edge] (D) to (E);
@@ -198,35 +202,45 @@ Running BFS on the free vertices of the left side... \\
 \draw[edge,color] (D) to (H);
 
 % BFS
-\node[blue vertex] (B) at (-2,1) {$B$};
-\node[blue vertex] (A) at (-2,2) {$A$};
+\onslide<2->{
+%\node[blue vertex] (B) at (-2,1) {$b$};
+\draw[edge,color=red] (A) to (E);
+\draw[edge,color=red] (A) to (F);
+\draw[edge,color=red] (A) to (H);
+}
 
-\node[blue vertex] (C) at (-2,0) {$C$};
-
-\node[blue vertex] (D) at (-2,-1) {$D$}; 
-
-\pause
-
-%\node[r vertex] (B) at (-2,1) {$B$};
+\onslide<3->{
 \draw[edge,color=red] (B) to (E);
+}
 
-\pause
-%\node[red vertex] (C) at (-2,0) {$C$};
+\onslide<4->{
 \draw[edge,color=red] (C) to (F);
+}
 
-\pause
-%\node[red vertex] (D) at (-2,-1) {$D$};
+\onslide<5->{
 \draw[edge,color=red] (D) to (E);
 \draw[edge,color=red] (D) to (F);
 \draw[edge,color=red] (D) to (G);
 \draw[edge,color=red] (D) to (H);
+}
 
 \end{tikzpicture} 
 
 \end{frame}
 
-\begin{frame}{First iteration}
-    Running DFS on the free vertices of the right side... \\
+
+\begin{frame}{First iteration:DFS}
+    
+    \only<1-3>{$\hspace{4.6cm}F=\{\textcolor{red}{e},f,h,g\}$}\\
+    \only<1-3>{$\hspace{4.6cm}P=\{(e-a)\}$}\\
+    \only<4>{$\hspace{4.6cm}F=\{e,\textcolor{red}{f},h,g\}$}\\
+    \only<4>{$\hspace{4.6cm}P=\{(e-a),(c-f)\}$}\\
+    \only<5>{$\hspace{4.6cm}F=\{e,f,h,g\}$}\\
+    \only<5>{$\hspace{4.6cm}P=\{(e-a),(c-f)\}$}\\
+    \only<6>{$\hspace{4.6cm}F=\{e,f,h,\textcolor{red}{g}\}$}\\
+    \only<6>{$\hspace{4.6cm}P=\{(e-a),(c-f),(g-d)\}$}\\
+    \only<7>{$\hspace{4.6cm}F=\{e,f,h,g\}$}\\
+    \only<7>{$\hspace{4.6cm}P=\{(e-a),(c-f),(g-d)\}$}\\
 \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -235,20 +249,21 @@ Running BFS on the free vertices of the left side... \\
 \tikzset{red vertex/.style={vertex,fill=red!50}}
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
+
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[blue vertex] (B) at (-2,1) {$B$};
-\node[blue vertex] (C) at (-2,0) {$C$};
-\node[blue vertex] (D) at (-2,-1) {$D$};
+\node[red vertex] (A) at (-2,2) {$a$};
+\node[blue vertex] (B) at (-2,1) {$b$};
+\node[blue vertex] (C) at (-2,0) {$c$};
+\node[blue vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[blue vertex] (E) at (2,2) {$E$};
-\node[blue vertex] (F) at (2,1) {$F$};
-\node[blue vertex] (G) at (2,0) {$G$};
-\node[blue vertex] (H) at (2,-1) {$H$};
+\node[blue vertex] (E) at (2,2) {$e$};
+\node[blue vertex] (F) at (2,1) {$f$};
+\node[blue vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
-\node[red vertex] (E) at (2,2) {$E$};
+\node[red vertex] (E) at (2,2) {$e$};
 \draw[edge,color=green,line width=1.5pt] (A) to (E);
 \draw[edge,color=red] (A) to (F);
 \draw[edge,color=red] (A) to (H);
@@ -262,6 +277,7 @@ Running BFS on the free vertices of the left side... \\
 \pause
 
 \draw[edge,color=white,line width=3pt] (A) to (E);
+
 \draw[edge,color=white,line width=3pt] (A) to (F);
 \draw[edge,color=white,line width=3pt] (A) to (H);
 \draw[edge,color=white,line width=3pt] (B) to (E);
@@ -282,8 +298,8 @@ Running BFS on the free vertices of the left side... \\
 
 \pause  
 \draw[edge,color=green,line width=1.5pt] (C) to (F);
-\node[red vertex] (F) at (2,1) {$F$};
-\node[red vertex] (C) at (-2,0) {$C$};
+\node[red vertex] (F) at (2,1) {$f$};
+\node[red vertex] (C) at (-2,0) {$c$};
 
 \pause
 \draw[edge,color=white,line width=3pt] (C) to (F);
@@ -291,11 +307,23 @@ Running BFS on the free vertices of the left side... \\
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,0) {};
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,1) {};
 
+\pause
+\draw[edge,color=green,line width=1.5pt] (D) to (G);
+\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (D) at (-2,-1) {$d$};
+
+\pause
+\draw[edge,color=white,line width=3pt] (D) to (G);
+\draw[edge,color=white,line width=3pt] (D) to (H);
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,0) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,-1) 
+
+
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{After first iteration}
-After running the DFS on the remaining part, $$M=\{A-E,C-F,G-D\}$$ \\
+After running the DFS on the remaining part, $$M=\{e-a,f-c,g-d\}$$ \\
 \vspace{.35cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -305,16 +333,16 @@ After running the DFS on the remaining part, $$M=\{A-E,C-F,G-D\}$$ \\
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[blue vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (C) at (-2,0) {$C$};
-\node[red vertex] (D) at (-2,-1) {$D$};
+\node[red vertex] (A) at (-2,2) {$a$};
+\node[blue vertex] (B) at (-2,1) {$b$};
+\node[red vertex] (C) at (-2,0) {$c$};
+\node[red vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$E$};
-\node[red vertex] (F) at (2,1) {$F$};
-\node[red vertex] (G) at (2,0) {$G$};
-\node[blue vertex] (H) at (2,-1) {$H$};
+\node[red vertex] (E) at (2,2) {$e$};
+\node[red vertex] (F) at (2,1) {$f$};
+\node[red vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge,color=green,line width=1.5pt] (A) to (E);
@@ -340,16 +368,16 @@ After running the DFS on the remaining part, $$M=\{A-E,C-F,G-D\}$$ \\
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[blue vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (C) at (-2,0) {$C$};
-\node[red vertex] (D) at (-2,-1) {$D$};
+\node[red vertex] (A) at (-2,2) {$a$};
+\node[blue vertex] (B) at (-2,1) {$b$};
+\node[red vertex] (C) at (-2,0) {$c$};
+\node[red vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$E$};
-\node[red vertex] (F) at (2,1) {$F$};
-\node[red vertex] (G) at (2,0) {$G$};
-\node[blue vertex] (H) at (2,-1) {$H$};
+\node[red vertex] (E) at (2,2) {$e$};
+\node[red vertex] (F) at (2,1) {$f$};
+\node[red vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge,color=green,line width=1.5pt] (A) to (E);
@@ -381,21 +409,21 @@ Running DFS on the free vertices of right side...\\
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[blue vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (C) at (-2,0) {$C$};
-\node[red vertex] (D) at (-2,-1) {$D$};
+\node[red vertex] (A) at (-2,2) {$a$};
+\node[blue vertex] (B) at (-2,1) {$b$};
+\node[red vertex] (C) at (-2,0) {$c$};
+\node[red vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$E$};
-\node[red vertex] (F) at (2,1) {$F$};
-\node[red vertex] (G) at (2,0) {$G$};
-\node[red vertex] (H) at (2,-1) {$H$};
+\node[red vertex] (E) at (2,2) {$e$};
+\node[red vertex] (F) at (2,1) {$f$};
+\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge,color=red,line width=1.5pt] (A) to (E);
 \draw[edge,color=red,line width=1.5pt] (A) to (F);
-\draw[edge,color=blue,line width=1.5pt] (A) to (H);
+\draw[edge,color=green,line width=1.5pt] (A) to (H);
 \draw[edge,color=red,line width=1.5pt] (B) to (E);
 \draw[edge,color=green,line width=1.5pt] (C) to (F);
 \draw[edge] (D) to (E);
@@ -419,8 +447,8 @@ Running DFS on the free vertices of right side...\\
 \pause
 \node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (-2,2) {};
 \draw[edge,color=white,line width=2pt] (A) to (E);
-\draw[edge,color=blue,line width=1.5pt] (B) to (E);
-\node[red vertex] (B) at (-2,1) {$B$};
+\draw[edge,color=green,line width=1.5pt] (B) to (E);
+\node[red vertex] (B) at (-2,1) {$b$};
 \pause
 \draw[edge,color=white,line width=2pt] (B) to (E);
 \draw[edge,color=white,line width=2pt] (D) to (E);
@@ -443,16 +471,16 @@ As no more free vertex is available,the algorithm terminates and finally we get 
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$A$};
-\node[red vertex] (B) at (-2,1) {$B$};
-\node[red vertex] (C) at (-2,0) {$C$};
-\node[red vertex] (D) at (-2,-1) {$D$};
+\node[red vertex] (A) at (-2,2) {$a$};
+\node[red vertex] (B) at (-2,1) {$b$};
+\node[red vertex] (C) at (-2,0) {$c$};
+\node[red vertex] (D) at (-2,-1) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$E$};
-\node[red vertex] (F) at (2,1) {$F$};
-\node[red vertex] (G) at (2,0) {$G$};
-\node[red vertex] (H) at (2,-1) {$H$};
+\node[red vertex] (E) at (2,2) {$e$};
+\node[red vertex] (F) at (2,1) {$f$};
+\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (H) at (2,-1) {$h$};
 
 % Edges
 \draw[edge,color] (A) to (E);
