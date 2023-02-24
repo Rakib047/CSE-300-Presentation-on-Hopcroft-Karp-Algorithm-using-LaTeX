@@ -231,16 +231,17 @@ A bipartite graph is given below where we will find its maximum cardinality math
 
 \begin{frame}{First iteration:DFS}
     
-    \only<1-3>{$\hspace{4.6cm}F=\{\textcolor{red}{e},f,h,g\}$}\\
-    \only<1-3>{$\hspace{4.6cm}P=\{(e-a)\}$}\\
-    \only<4>{$\hspace{4.6cm}F=\{e,\textcolor{red}{f},h,g\}$}\\
-    \only<4>{$\hspace{4.6cm}P=\{(e-a),(c-f)\}$}\\
-    \only<5>{$\hspace{4.6cm}F=\{e,f,h,g\}$}\\
-    \only<5>{$\hspace{4.6cm}P=\{(e-a),(c-f)\}$}\\
-    \only<6>{$\hspace{4.6cm}F=\{e,f,h,\textcolor{red}{g}\}$}\\
-    \only<6>{$\hspace{4.6cm}P=\{(e-a),(c-f),(g-d)\}$}\\
-    \only<7>{$\hspace{4.6cm}F=\{e,f,h,g\}$}\\
-    \only<7>{$\hspace{4.6cm}P=\{(e-a),(c-f),(g-d)\}$}\\
+    \only<1-2>{$\hspace{4.6cm}F=\{\textcolor{red}{e},f,h,g\}$}\\
+    \only<3>{$\hspace{4.6cm}F=\{f,h,g\}$}\\
+    \only<1-3>{$\hspace{4.6cm}P=\{\textcolor{red}{(e-a)}\}$}\\
+    \only<4>{$\hspace{4.6cm}F=\{\textcolor{red}{f},h,g\}$}\\
+    \only<4>{$\hspace{4.6cm}P=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
+    \only<5>{$\hspace{4.6cm}F=\{h,g\}$}\\
+    \only<5>{$\hspace{4.6cm}P=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
+    \only<6>{$\hspace{4.6cm}F=\{h,\textcolor{red}{g}\}$}\\
+    \only<6>{$\hspace{4.6cm}P=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
+    \only<7>{$\hspace{4.6cm}F=\{h\}$}\\
+    \only<7>{$\hspace{4.6cm}P=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
 \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -323,7 +324,7 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \end{frame}
 
 \begin{frame}{After first iteration}
-After running the DFS on the remaining part, $$M=\{e-a,f-c,g-d\}$$ \\
+After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \vspace{.35cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
