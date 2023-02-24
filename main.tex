@@ -357,8 +357,12 @@ After running the DFS on the remaining part, $$M=\{e-a,f-c,g-d\}$$ \\
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Second iteration}
-    Running BFS on the free vertices of left side..\\
+\begin{frame}{Second iteration:BFS}
+    \only<1-2>{$\hspace{3cm}F=\{\}$} \\
+    \only<1>{$\hspace{3cm}Augmenting path=b->e$}
+    \only<2>{$\hspace{3cm}\text{Augmenting path}=b->e->a$}
+    \only<3>{$\hspace{3cm}F=\{\textcolor{red}{H}\}$}\\
+    \only<3>{$\hspace{3cm}\text{Augmenting path}=b->e->a->h$}\\
     \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -398,8 +402,8 @@ After running the DFS on the remaining part, $$M=\{e-a,f-c,g-d\}$$ \\
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Second iteration}
-Running DFS on the free vertices of right side...\\
+\begin{frame}{Second iteration:DFS}
+        
         \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
