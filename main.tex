@@ -123,7 +123,7 @@ A matching in a graph is a set of edges such that no two edges share a common ve
 \begin{algorithmic}[1]
 \State $M=\phi$ \pause
 \Repeat 
-\State $P=\{p_1,p_2,\dots,p_k\}$ {\small //vertex-disjoint shortest augmenting paths} \pause
+\State $P=\{p_1,p_2,\dots,p_k\}$ {\tiny //maximal set of vertex-disjoint shortest augmenting paths} \pause
 \State $M:=M\oplus\{p_1 \cup p_2 \cup \dots \cup p_k\}$\pause
 \Until{$P=\phi$} \pause
 \State Output the matching $M$ as the maximum cardinality matching.
@@ -240,23 +240,25 @@ A bipartite graph is given below where we will find its maximum cardinality math
     \only<1-2>{$\hspace{4.6cm}F=\{\textcolor{red}{e},f,h,g\}$}\\
     \only<3>{$\hspace{4.6cm}F=\{f,h,g\}$}\\
     \only<1-3>{$\hspace{4.6cm}P=\{\textcolor{red}{(e-a)}\}$}\\
-    \only<1-3>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-a)}\}$}\\
+    %\only<1-3>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-a)}\}$}\\
     
     \only<4>{$\hspace{4.6cm}F=\{\textcolor{red}{f},h,g\}$}\\
     \only<4>{$\hspace{4.6cm}P=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
-    \only<4>{$\hspace{4.6cm}M=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
+    %\only<4>{$\hspace{4.6cm}M=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
     
     \only<5>{$\hspace{4.6cm}F=\{h,g\}$}\\
     \only<5>{$\hspace{4.6cm}P=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
-    \only<5>{$\hspace{4.6cm}M=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
+    %\only<5>{$\hspace{4.6cm}M=\{(e-a),\textcolor{red}{(f-c)}\}$}\\
     
     \only<6>{$\hspace{4.6cm}F=\{h,\textcolor{red}{g}\}$}\\
     \only<6>{$\hspace{4.6cm}P=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
-    \only<6>{$\hspace{4.6cm}M=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
+    %\only<6>{$\hspace{4.6cm}M=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
     
     \only<7>{$\hspace{4.6cm}F=\{h\}$}\\
-    \only<7>{$\hspace{4.6cm}P=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
-    \only<7>{$\hspace{4.6cm}M=\{(e-a),(f-c),\textcolor{red}{(g-d)}\}$}\\
+    \only<7>{$\hspace{4.6cm}P=\{(e-a),(f-c),(g-d)\}$}\\
+    \only<7>{$\hspace{4.6cm}\text{Before } M=\phi$}\\
+    \only<7>{$\hspace{4.6cm}\text{After }M=M\oplus P$}\\
+    \only<7>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}\\
 \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -332,8 +334,7 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \draw[edge,color=white,line width=3pt] (D) to (G);
 \draw[edge,color=white,line width=3pt] (D) to (H);
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,2) {};
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (0,-1) {} 
-
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (0,-1) {}; 
 
 \end{tikzpicture}
 \end{frame}
@@ -424,28 +425,31 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \begin{frame}{Second iteration:DFS}
     \only<1>{$\hspace{4.6cm}F=\{h\}$}\\
     \only<1>{$\hspace{4.6cm}P=\{\}$}\\
-    \only<1>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
+    %\only<1>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
 
     \only<2>{$\hspace{4.6cm}F=\{h\}$}\\
     \only<2>{$\hspace{4.6cm}P=\{\}$}\\
-    \only<2>{$\hspace{4.6cm}M=\{\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
+    %\only<2>{$\hspace{4.6cm}M=\{\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
 
     \only<3-4>{$\hspace{4.6cm}F=\{\textcolor{red}{h}\}$}\\
     \only<3-4>{$\hspace{4.6cm}P=\{\textcolor{red}{(h-a)}\}$}\\
-    \only<3-4>{$\hspace{4.6cm}M=\{\textcolor{red}{(h-a)},(f-c),(g-d)\}$}
+    %\only<3-4>{$\hspace{4.6cm}M=\{\textcolor{red}{(h-a)},(f-c),(g-d)\}$}
 
     \only<5>{$\hspace{4.6cm}F=\{\}$}\\
     \only<5>{$\hspace{4.6cm}P=\{(h-a)\}$}\\
-    \only<5>{$\hspace{4.6cm}M=\{(h-a),(f-c),(g-d)\}$}
+    %\only<5>{$\hspace{4.6cm}M=\{(h-a),(f-c),(g-d)\}$}
 
     \only<6-7>{$\hspace{4.6cm}F=\{\}$}\\
     \only<6-7>{$\hspace{4.6cm}P=\{(h-a),\textcolor{red}{(e-b)}\}$}\\
-    \only<6-7>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-b)},(h-a),(f-c),(g-d)\}$}
+    %\only<6-7>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-b)},(h-a),(f-c),(g-d)\}$}
 
     \only<8>{$\hspace{4.6cm}F=\{\}$}\\
-    \only<8>{$\hspace{4.6cm}P=\{(h-a),(e-b)\}$}\\
-    \only<8>{$\hspace{4.6cm}M=\{(e-b),(h-a),(f-c),(g-d)\}$}
-    
+    \only<8>{$\hspace{4.6cm}P=\{(h-a),\textcolor{blue}{(a-e)},(e-b)\}$}\\
+    %\only<8>{$\hspace{4.6cm}M=\{(e-b),(h-a),(f-c),(g-d)\}$}
+
+    \only<8>{$\hspace{4.6cm}\text{Before } M=\{(a-e),(f-c),(g-d)\}$}\\
+    \only<8>{$\hspace{4.6cm}\text{After }M=M\oplus P$}\\
+    \only<8>{$\hspace{4.6cm}M=\{(h-a),(e-b),(f-c),(g-d)\}$}\\
     
         \vspace{.5cm}
 \hspace{2.7cm}
