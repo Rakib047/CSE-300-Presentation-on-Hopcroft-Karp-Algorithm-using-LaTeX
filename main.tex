@@ -324,7 +324,7 @@ A bipartite graph is given below where we will find its maximum cardinality math
 \end{frame}
 
 \begin{frame}{After first iteration}
-After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
+After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \vspace{.35cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -362,8 +362,9 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
     \only<1-2>{$\hspace{3cm}F=\{\}$} \\
     \only<1>{$\hspace{3cm}\text{Augmenting path}=b->e$}
     \only<2>{$\hspace{3cm}\text{Augmenting path}=b->e->a$}
-    \only<3>{$\hspace{3cm}F=\{\textcolor{red}{H}\}$}\\
-    \only<3>{$\hspace{3cm}\text{Augmenting path}=b->e->a->h$}\\
+    \only<3>{$\hspace{3cm}F=\{\textcolor{red}{h}\}$}\\
+    \only<3>{$\hspace{3cm}\text{Augmenting path}=b->e->a->f,
+    \textcolor{blue}{h}$}\\
     \vspace{.5cm}
 \hspace{2.7cm}
     \begin{tikzpicture}[scale=1.5]
@@ -404,25 +405,25 @@ After running the DFS on the remaining part, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \end{frame}
 
 \begin{frame}{Second iteration:DFS}
-    \only<1>{$\hspace{4.6cm}F=\{H\}$}\\
+    \only<1>{$\hspace{4.6cm}F=\{h\}$}\\
     \only<1>{$\hspace{4.6cm}P=\{\}$}\\
     \only<1>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
 
-    \only<2-3>{$\hspace{4.6cm}F=\{\textcolor{red}{H}\}$}\\
+    \only<2-3>{$\hspace{4.6cm}F=\{\textcolor{red}{h}\}$}\\
     \only<2-3>{$\hspace{4.6cm}P=\{\textcolor{red}{(h-a)}\}$}\\
-    \only<2-3>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
+    \only<2-3>{$\hspace{4.6cm}M=\{\textcolor{red}{(h-a)},(e-a),(f-c),(g-d)\}$}
 
     \only<4>{$\hspace{4.6cm}F=\{\}$}\\
     \only<4>{$\hspace{4.6cm}P=\{(h-a),\textcolor{blue}{(a-e)}\}$}\\
-    \only<4>{$\hspace{4.6cm}M=\{\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
+    \only<4>{$\hspace{4.6cm}M=\{(h-a),\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
 
     \only<5-6>{$\hspace{4.6cm}F=\{\}$}\\
     \only<5-6>{$\hspace{4.6cm}P=\{(h-a),\textcolor{red}{(e-b)}\}$}\\
-    \only<5-6>{$\hspace{4.6cm}M=\{(f-c),(g-d)\}$}
+    \only<5-6>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-b)},(h-a),(f-c),(g-d)\}$}
 
     \only<7>{$\hspace{4.6cm}F=\{\}$}\\
     \only<7>{$\hspace{4.6cm}P=\{(h-a),(e-b)\}$}\\
-    \only<7>{$\hspace{4.6cm}M=\{(f-c),(g-d)\}$}
+    \only<7>{$\hspace{4.6cm}M=\{(e-b),(h-a),(f-c),(g-d)\}$}
     
     
         \vspace{.5cm}
