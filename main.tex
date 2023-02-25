@@ -141,14 +141,14 @@ A bipartite graph is given below where we will find its maximum cardinality math
 
 % Left partition
 \node[vertex] (A) at (-2,2) {$a$};
-\node[vertex] (B) at (-2,1) {$b$};
-\node[vertex] (C) at (-2,0) {$c$};
-\node[vertex] (D) at (-2,-1) {$d$};
+\node[vertex] (B) at (-1,2) {$b$};
+\node[vertex] (C) at (.5,2) {$c$};
+\node[vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[vertex] (E) at (2,2) {$e$};
-\node[vertex] (F) at (2,1) {$f$};
-\node[vertex] (G) at (2,0) {$g$};
+\node[vertex] (E) at (-2,-1) {$e$};
+\node[vertex] (F) at (-1,-1) {$f$};
+\node[vertex] (G) at (0,-1) {$g$};
 \node[vertex] (H) at (2,-1) {$h$};
 
 % Edges
@@ -180,14 +180,14 @@ A bipartite graph is given below where we will find its maximum cardinality math
 
 % Left partition
 \node[blue vertex] (A) at (-2,2) {$a$};
-\node[blue vertex] (B) at (-2,1) {$b$};
-\node[blue vertex] (C) at (-2,0) {$c$};
-\node[blue vertex] (D) at (-2,-1) {$d$};
+\node[blue vertex] (B) at (-1,2) {$b$};
+\node[blue vertex] (C) at (.5,2) {$c$};
+\node[blue vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[blue vertex] (E) at (2,2) {$e$};
-\node[blue vertex] (F) at (2,1) {$f$};
-\node[blue vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (E) at (-2,-1) {$e$};
+\node[blue vertex] (F) at (-1,-1) {$f$};
+\node[blue vertex] (G) at (0,-1) {$g$};
 \node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
@@ -253,18 +253,18 @@ A bipartite graph is given below where we will find its maximum cardinality math
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$a$};
-\node[blue vertex] (B) at (-2,1) {$b$};
-\node[blue vertex] (C) at (-2,0) {$c$};
-\node[blue vertex] (D) at (-2,-1) {$d$};
+\node[blue vertex] (B) at (-1,2) {$b$};
+\node[blue vertex] (C) at (0.5,2) {$c$};
+\node[blue vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[blue vertex] (E) at (2,2) {$e$};
-\node[blue vertex] (F) at (2,1) {$f$};
-\node[blue vertex] (G) at (2,0) {$g$};
+\node[blue vertex] (E) at (-2,-1) {$e$};
+\node[blue vertex] (F) at (-1,-1) {$f$};
+\node[blue vertex] (G) at (0,-1) {$g$};
 \node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
-\node[red vertex] (E) at (2,2) {$e$};
+\node[red vertex] (E) at (-2,-1) {$e$};
 \draw[edge,color=green,line width=1.5pt] (A) to (E);
 \draw[edge,color=red] (A) to (F);
 \draw[edge,color=red] (A) to (H);
@@ -294,30 +294,30 @@ A bipartite graph is given below where we will find its maximum cardinality math
 
 \pause
 \node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,2) {};
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at ((-2,1) {};
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,2) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at ((-2,-1) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-1,2) {};
 
 \pause  
 \draw[edge,color=green,line width=1.5pt] (C) to (F);
-\node[red vertex] (F) at (2,1) {$f$};
-\node[red vertex] (C) at (-2,0) {$c$};
+\node[red vertex] (F) at (-1,-1) {$f$};
+\node[red vertex] (C) at (.5,2) {$c$};
 
 \pause
 \draw[edge,color=white,line width=3pt] (C) to (F);
 \draw[edge,color=white,line width=3pt] (D) to (F);
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,0) {};
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,1) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-1,-1) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (.5,2) {};
 
 \pause
 \draw[edge,color=green,line width=1.5pt] (D) to (G);
-\node[red vertex] (G) at (2,0) {$g$};
-\node[red vertex] (D) at (-2,-1) {$d$};
+\node[red vertex] (G) at (0,-1) {$g$};
+\node[red vertex] (D) at (2,2) {$d$};
 
 \pause
 \draw[edge,color=white,line width=3pt] (D) to (G);
 \draw[edge,color=white,line width=3pt] (D) to (H);
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,0) {};
-\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (-2,-1) 
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (2,2) {};
+\node[shape=circle,draw=white,minimum size=2em,fill=white] (A) at (0,-1) {} 
 
 
 \end{tikzpicture}
@@ -335,14 +335,14 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$a$};
-\node[blue vertex] (B) at (-2,1) {$b$};
-\node[red vertex] (C) at (-2,0) {$c$};
-\node[red vertex] (D) at (-2,-1) {$d$};
+\node[blue vertex] (B) at (-1,2) {$b$};
+\node[red vertex] (C) at (.5,2) {$c$};
+\node[red vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$e$};
-\node[red vertex] (F) at (2,1) {$f$};
-\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (E) at (-2,-1) {$e$};
+\node[red vertex] (F) at (-1,-1) {$f$};
+\node[red vertex] (G) at (0,-1) {$g$};
 \node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
@@ -375,14 +375,14 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$a$};
-\node[blue vertex] (B) at (-2,1) {$b$};
-\node[red vertex] (C) at (-2,0) {$c$};
-\node[red vertex] (D) at (-2,-1) {$d$};
+\node[blue vertex] (B) at (-1,2) {$b$};
+\node[red vertex] (C) at (.5,2) {$c$};
+\node[red vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$e$};
-\node[red vertex] (F) at (2,1) {$f$};
-\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (E) at (-2,-1) {$e$};
+\node[red vertex] (F) at (-1,-1) {$f$};
+\node[red vertex] (G) at (0,-1) {$g$};
 \node[blue vertex] (H) at (2,-1) {$h$};
 
 % Edges
@@ -397,7 +397,7 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \draw[edge,color] (D) to (H);
 
 \pause
-\draw[edge,color=red,line width=1.5pt] (A) to (E);
+\draw[edge,color=blue,line width=1.5pt] (A) to (E);
 \pause
 \draw[edge,color=red,line width=1.5pt] (A) to (H);
 \draw[edge,color=red,line width=1.5pt] (A) to (F);
@@ -435,57 +435,63 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 \tikzset{blue vertex/.style={vertex,fill=blue!50}}
 
 % Left partition
-\node[red vertex] (A) at (-2,2) {$a$};
-\node[blue vertex] (B) at (-2,1) {$b$};
-\node[red vertex] (C) at (-2,0) {$c$};
-\node[red vertex] (D) at (-2,-1) {$d$};
+\node[red vertex] (A) at (3.5,0) {$a$};
+\node[blue vertex] (B) at (3.5,2) {$b$};
+%\node[red vertex] (C) at (.5,2) {$c$};
+%\node[red vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$e$};
-\node[red vertex] (F) at (2,1) {$f$};
-\node[red vertex] (G) at (2,0) {$g$};
-\node[blue vertex] (H) at (2,-1) {$h$};
+\node[red vertex] (E) at (3.5,1) {$e$};
+\node[red vertex] (F) at (3,-1) {$f$};
+%\node[red vertex] (G) at (0,-1) {$g$};
+\node[blue vertex] (H) at (4,-1) {$h$};
 
 % Edges
 \draw[edge,color=red,line width=1.5pt] (A) to (E);
 \draw[edge,color=red,line width=1.5pt] (A) to (F);
 \draw[edge,color=red,line width=1.5pt] (A) to (H);
 \draw[edge,color=red,line width=1.5pt] (B) to (E);
-\draw[edge,color=green,line width=1.5pt] (C) to (F);
-\draw[edge] (D) to (E);
-\draw[edge] (D) to (F);
-\draw[edge,color=green,line width=1.5pt] (D) to (G);
-\draw[edge,color] (D) to (H);
+%\draw[edge,color=green,line width=1.5pt] (C) to (F);
+%\draw[edge] (D) to (E);
+%\draw[edge] (D) to (F);
+%\draw[edge,color=green,line width=1.5pt] (D) to (G);
+%\draw[edge,color] (D) to (H);
 
 \pause
     \draw[edge,color=green,line width=1.5pt] (A) to (H);
-    \node[red vertex] (H) at (2,-1) {$h$};
+    \node[red vertex] (H) at (4,-1) {$h$};
     
 \pause
 
 \draw[edge,color=white,line width=3pt] (A) to (H);
-\draw[edge,color=green,line width=1.5pt] (C) to (F);
-\draw[edge] (D) to (F);
-\draw[edge,color=green,line width=1.5pt] (D) to (G);
+%\draw[edge,color=green,line width=1.5pt] (C) to (F);
+%\draw[edge] (D) to (F);
+%\draw[edge,color=green,line width=1.5pt] (D) to (G);
 \draw[edge,color=white,line width=3pt] (A) to (F);
-\draw[edge] (D) to (E);
+%\draw[edge] (D) to (E);
 \draw[edge,color=red,line width=1.5pt] (B) to (E);
-\draw[edge,color=white,line width=3pt] (D) to (H);
+%\draw[edge,color=white,line width=3pt] (D) to (H);
+
 \pause
 \draw[edge,color=blue,line width=1.5pt] (A) to (E);
-\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (2,-1) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (4,-1) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (F) at (3,-1) {};
+
 \pause
-\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (-2,2) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (3.5,0) {};
 \draw[edge,color=white,line width=2pt] (A) to (E);
 \draw[edge,color=green,line width=1.5pt] (B) to (E);
-\node[red vertex] (B) at (-2,1) {$b$};
+\node[red vertex] (B) at (3.5,2) {$b$};
+%\node[red vertex] (B) at (-2,1) {$b$};
+
 \pause
 \draw[edge,color=white,line width=2pt] (B) to (E);
-\draw[edge,color=white,line width=2pt] (D) to (E);
-\draw[edge,color=green,line width=1.5pt] (C) to (F);
+%\draw[edge,color=white,line width=2pt] (D) to (E);
+%\draw[edge,color=green,line width=1.5pt] (C) to (F);
+
 \pause
-\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (B) at (-2,1) {};
-\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (E) at (2,2) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (B) at (3.5,2) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (E) at (3.5,1) {};
 \end{tikzpicture}
 \end{frame}
 
@@ -502,14 +508,14 @@ As no more free vertex is available,the algorithm terminates and finally we get 
 
 % Left partition
 \node[red vertex] (A) at (-2,2) {$a$};
-\node[red vertex] (B) at (-2,1) {$b$};
-\node[red vertex] (C) at (-2,0) {$c$};
-\node[red vertex] (D) at (-2,-1) {$d$};
+\node[red vertex] (B) at (-1,2) {$b$};
+\node[red vertex] (C) at (.5,2) {$c$};
+\node[red vertex] (D) at (2,2) {$d$};
 
 % Right partition
-\node[red vertex] (E) at (2,2) {$e$};
-\node[red vertex] (F) at (2,1) {$f$};
-\node[red vertex] (G) at (2,0) {$g$};
+\node[red vertex] (E) at (-2,-1) {$e$};
+\node[red vertex] (F) at (-1,-1) {$f$};
+\node[red vertex] (G) at (0,-1) {$g$};
 \node[red vertex] (H) at (2,-1) {$h$};
 
 % Edges
