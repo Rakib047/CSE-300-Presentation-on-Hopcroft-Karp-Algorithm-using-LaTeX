@@ -409,21 +409,25 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
     \only<1>{$\hspace{4.6cm}P=\{\}$}\\
     \only<1>{$\hspace{4.6cm}M=\{(e-a),(f-c),(g-d)\}$}
 
-    \only<2-3>{$\hspace{4.6cm}F=\{\textcolor{red}{h}\}$}\\
-    \only<2-3>{$\hspace{4.6cm}P=\{\textcolor{red}{(h-a)}\}$}\\
-    \only<2-3>{$\hspace{4.6cm}M=\{\textcolor{red}{(h-a)},(e-a),(f-c),(g-d)\}$}
+    \only<2>{$\hspace{4.6cm}F=\{h\}$}\\
+    \only<2>{$\hspace{4.6cm}P=\{\}$}\\
+    \only<2>{$\hspace{4.6cm}M=\{\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
 
-    \only<4>{$\hspace{4.6cm}F=\{\}$}\\
-    \only<4>{$\hspace{4.6cm}P=\{(h-a),\textcolor{blue}{(a-e)}\}$}\\
-    \only<4>{$\hspace{4.6cm}M=\{(h-a),\textcolor{blue}{(e-a)},(f-c),(g-d)\}$}
+    \only<3-4>{$\hspace{4.6cm}F=\{\textcolor{red}{h}\}$}\\
+    \only<3-4>{$\hspace{4.6cm}P=\{\textcolor{red}{(h-a)}\}$}\\
+    \only<3-4>{$\hspace{4.6cm}M=\{\textcolor{red}{(h-a)},(f-c),(g-d)\}$}
 
-    \only<5-6>{$\hspace{4.6cm}F=\{\}$}\\
-    \only<5-6>{$\hspace{4.6cm}P=\{(h-a),\textcolor{red}{(e-b)}\}$}\\
-    \only<5-6>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-b)},(h-a),(f-c),(g-d)\}$}
+    \only<5>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<5>{$\hspace{4.6cm}P=\{(h-a)\}$}\\
+    \only<5>{$\hspace{4.6cm}M=\{(h-a),(f-c),(g-d)\}$}
 
-    \only<7>{$\hspace{4.6cm}F=\{\}$}\\
-    \only<7>{$\hspace{4.6cm}P=\{(h-a),(e-b)\}$}\\
-    \only<7>{$\hspace{4.6cm}M=\{(e-b),(h-a),(f-c),(g-d)\}$}
+    \only<6-7>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<6-7>{$\hspace{4.6cm}P=\{(h-a),\textcolor{red}{(e-b)}\}$}\\
+    \only<6-7>{$\hspace{4.6cm}M=\{\textcolor{red}{(e-b)},(h-a),(f-c),(g-d)\}$}
+
+    \only<8>{$\hspace{4.6cm}F=\{\}$}\\
+    \only<8>{$\hspace{4.6cm}P=\{(h-a),(e-b)\}$}\\
+    \only<8>{$\hspace{4.6cm}M=\{(e-b),(h-a),(f-c),(g-d)\}$}
     
     
         \vspace{.5cm}
@@ -458,6 +462,9 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 %\draw[edge,color] (D) to (H);
 
 \pause
+\draw[edge,color=blue,line width=1.5pt] (A) to (E);
+
+\pause
     \draw[edge,color=green,line width=1.5pt] (A) to (H);
     \node[red vertex] (H) at (4,-1) {$h$};
     
@@ -468,14 +475,15 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 %\draw[edge] (D) to (F);
 %\draw[edge,color=green,line width=1.5pt] (D) to (G);
 \draw[edge,color=white,line width=3pt] (A) to (F);
+\draw[edge,color=white,line width=3pt] (A) to (E);
 %\draw[edge] (D) to (E);
 \draw[edge,color=red,line width=1.5pt] (B) to (E);
 %\draw[edge,color=white,line width=3pt] (D) to (H);
 
 \pause
-\draw[edge,color=blue,line width=1.5pt] (A) to (E);
 \node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (4,-1) {};
 \node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (F) at (3,-1) {};
+\node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (A) at (3.5,0) {};
 
 \pause
 \node[shape=circle,draw=white,thick,minimum size=2em,fill=white] (H) at (3.5,0) {};
@@ -485,7 +493,7 @@ After running the DFS, $$M=\{(e-a),(f-c),(g-d)\}$$ \\
 %\node[red vertex] (B) at (-2,1) {$b$};
 
 \pause
-\draw[edge,color=white,line width=2pt] (B) to (E);
+\draw[edge,color=white,line width=3pt] (B) to (E);
 %\draw[edge,color=white,line width=2pt] (D) to (E);
 %\draw[edge,color=green,line width=1.5pt] (C) to (F);
 
