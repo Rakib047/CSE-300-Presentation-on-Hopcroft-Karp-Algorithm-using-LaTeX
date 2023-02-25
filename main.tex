@@ -122,10 +122,10 @@ A matching in a graph is a set of edges such that no two edges share a common ve
 \caption{Hopcroft-Karp(G)}
 \begin{algorithmic}[1]
 \State $M=\phi$ \pause
-\While{$P\neq\phi$} \pause
+\Repeat 
 \State $P=\{p_1,p_2,\dots,p_k\}$ {\small //vertex-disjoint shortest augmenting paths} \pause
 \State $M:=M\oplus\{p_1 \cup p_2 \cup \dots \cup p_k\}$\pause
-\EndWhile
+\Until{$P=\phi$} \pause
 \State Output the matching $M$ as the maximum cardinality matching.
 \end{algorithmic}
 \end{algorithm}
