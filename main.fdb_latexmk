@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1677336296 "/Users/rakibabdullah/Desktop/Presentation/main.tex" "main.pdf" "main" 1677336296
-  "/Users/rakibabdullah/Desktop/Presentation/main.tex" 1677336292 17573 50be279f0a1407c1e62f48afee83089f ""
+["pdflatex"] 1677337869 "/Users/rakibabdullah/Desktop/Presentation/main.tex" "main.pdf" "main" 1677337869
+  "/Users/rakibabdullah/Desktop/Presentation/main.tex" 1677337864 18385 40ae71b55809d75980258075f35cdab4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -216,10 +216,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1677246036 2826442 6a703c307108a3c069243fe380a037b8 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1677336296 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.aux" 1677337869 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "main.nav" 0 -1 0 "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1677336292 17573 50be279f0a1407c1e62f48afee83089f ""
+  "main.tex" 1677337864 18385 40ae71b55809d75980258075f35cdab4 ""
   "main.toc" 0 -1 0 "pdflatex"
   (generated)
   "main.aux"
